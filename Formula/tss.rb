@@ -2,21 +2,21 @@
 class Tss < Formula
   desc "A Go port of moreutils/ts and fork of kevinburke/tss"
   homepage "https://github.com/peaceiris/tss"
-  version "0.2.0"
+  version "0.3.1"
   license "MIT"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/peaceiris/tss/releases/download/v0.2.0/tss_v0.2.0_darwin-amd64.tar.gz"
-    sha256 "a5387d92b1130fb71df0d5604b71b42f8900d062d1ca16f6dc513c9ebca4fbc0"
+    url "https://github.com/peaceiris/tss/releases/download/v0.3.1/tss_v0.3.1_darwin-amd64.tar.gz"
+    sha256 "7cf5cd7f7d94e298a0f285899adec3f2e0c5c026813550fe7bae1676ab2ffe78"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/peaceiris/tss/releases/download/v0.2.0/tss_v0.2.0_linux-amd64.tar.gz"
-    sha256 "7d998219b27955127df9ee38090ccfad6d535bd4d7a52cde229faf63bf4882c1"
+    url "https://github.com/peaceiris/tss/releases/download/v0.3.1/tss_v0.3.1_linux-amd64.tar.gz"
+    sha256 "01edb71e5d1127438f8e4c71d3d18205dedfc1ead6edd064cd3e360d01d28a90"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/peaceiris/tss/releases/download/v0.2.0/tss_v0.2.0_linux-arm64.tar.gz"
-    sha256 "632aea92b599ab0a0f1909659751cad4bd1a7e06d2903480401b23ea3d2ff885"
+    url "https://github.com/peaceiris/tss/releases/download/v0.3.1/tss_v0.3.1_linux-arm64.tar.gz"
+    sha256 "19fe2a34c2f337be0b1402f73aaa41ccd1449917d1df901614fb0bbc6535ea19"
   end
 
   def install
