@@ -5,25 +5,30 @@
 class Tss < Formula
   desc "Annotate stdin with timestamps per line. A Go port of moreutils/ts and fork of kevinburke/tss."
   homepage "https://github.com/peaceiris/tss"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/peaceiris/tss/releases/download/v0.5.0/tss_v0.5.0_darwin-amd64.tar.gz"
-    sha256 "aa3506523eb87d7eb72b149eaad8497249cea9a7999adf17c9ad050966919604"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.0/tss_v0.6.0_darwin-amd64.tar.gz"
+      sha256 "66edbbef4691c835266d4d4d8de680f85aa9e565635e916e94f92091148062c5"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.0/tss_v0.6.0_darwin-arm64.tar.gz"
+      sha256 "a9906ccda6731be34f67cf036616014645fb91f9a001259f7608b108f64957a2"
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/peaceiris/tss/releases/download/v0.5.0/tss_v0.5.0_darwin-arm64.tar.gz"
-    sha256 "c7cb1e525de4b9b5d13f653cc89967dc073cd93ba0c4e2b5ec48cd05a6aa477f"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/peaceiris/tss/releases/download/v0.5.0/tss_v0.5.0_linux-amd64.tar.gz"
-    sha256 "efd34be611e1b189c46953ab010da4fc561f443c5b780dc356ef38dccaf66dc2"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/peaceiris/tss/releases/download/v0.5.0/tss_v0.5.0_linux-arm64.tar.gz"
-    sha256 "011b7284eec40736d322166e4e808f51e4f3913609261d132fa8c54876115d47"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.0/tss_v0.6.0_linux-amd64.tar.gz"
+      sha256 "e49df54dae7508d69118fd64a6001bed016e3736565c88ef143f142811b8756a"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.0/tss_v0.6.0_linux-arm64.tar.gz"
+      sha256 "c36d790cf3d1dbb241103476fd167a612747b26cddb179fad6a48a813628100f"
+    end
   end
 
   def install
