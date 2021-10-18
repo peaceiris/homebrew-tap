@@ -22,7 +22,7 @@ jobs:
           - 'ubuntu-18.04'
           - 'macos-latest'
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
       - run: brew update
       - run: brew upgrade
       - run: brew install peaceiris/tap/tss
