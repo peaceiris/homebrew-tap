@@ -5,34 +5,45 @@
 class Tss < Formula
   desc "Annotate stdin with timestamps per line. A Go port of moreutils/ts and fork of kevinburke/tss."
   homepage "https://github.com/peaceiris/tss"
-  version "0.6.0"
+  version "0.6.1"
   license "MIT"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/peaceiris/tss/releases/download/v0.6.0/tss_v0.6.0_darwin-amd64.tar.gz"
-      sha256 "66edbbef4691c835266d4d4d8de680f85aa9e565635e916e94f92091148062c5"
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.1/tss_v0.6.1_darwin-amd64.tar.gz"
+      sha256 "4481691634002bb5285f2c85ef2941a00ba722e7d4a13c220f7b4489d0eb9e14"
+
+      def install
+        bin.install "tss"
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/peaceiris/tss/releases/download/v0.6.0/tss_v0.6.0_darwin-arm64.tar.gz"
-      sha256 "a9906ccda6731be34f67cf036616014645fb91f9a001259f7608b108f64957a2"
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.1/tss_v0.6.1_darwin-arm64.tar.gz"
+      sha256 "4124bdc2a18fd71ec9da5eecd071e1023f8aab928063163110ac5db6f3fd7a14"
+
+      def install
+        bin.install "tss"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/peaceiris/tss/releases/download/v0.6.0/tss_v0.6.0_linux-amd64.tar.gz"
-      sha256 "e49df54dae7508d69118fd64a6001bed016e3736565c88ef143f142811b8756a"
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.1/tss_v0.6.1_linux-amd64.tar.gz"
+      sha256 "f76f6c1886b88a60c1e03309af11705e50fa47fa2cb871f0384654e9434ac468"
+
+      def install
+        bin.install "tss"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/peaceiris/tss/releases/download/v0.6.0/tss_v0.6.0_linux-arm64.tar.gz"
-      sha256 "c36d790cf3d1dbb241103476fd167a612747b26cddb179fad6a48a813628100f"
-    end
-  end
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.1/tss_v0.6.1_linux-arm64.tar.gz"
+      sha256 "6f571e4452b4edb623d2557c49cb8374cfb446921699f9be3dc569bbb6d82797"
 
-  def install
-    bin.install "tss"
+      def install
+        bin.install "tss"
+      end
+    end
   end
 
   test do
