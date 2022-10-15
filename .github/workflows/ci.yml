@@ -21,10 +21,13 @@ jobs:
     strategy:
       matrix:
         os:
-          - 'ubuntu-latest'
+          - 'ubuntu-22.04'
           - 'macos-latest'
     steps:
       - uses: actions/checkout@v3
+      - name: Setup Homebrew
+        if: startsWith(matrix.os, 'ubuntu-22.04')
+        uses: Homebrew/actions/setup-homebrew@master
       - run: brew update
       - run: brew upgrade
       - run: brew install peaceiris/tap/tss
