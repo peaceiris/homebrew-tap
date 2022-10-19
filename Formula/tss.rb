@@ -5,21 +5,21 @@
 class Tss < Formula
   desc "Annotate stdin with timestamps per line. A Go port of moreutils/ts and fork of kevinburke/tss."
   homepage "https://github.com/peaceiris/tss"
-  version "0.6.1"
+  version "0.6.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/peaceiris/tss/releases/download/v0.6.1/tss_v0.6.1_darwin-amd64.tar.gz"
-      sha256 "4481691634002bb5285f2c85ef2941a00ba722e7d4a13c220f7b4489d0eb9e14"
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.2/tss_v0.6.2_darwin-amd64.tar.gz"
+      sha256 "c62d5c03734b05e2a3b98711f4c3d357d9cc1b5555ac8d338406e665bba240e9"
 
       def install
         bin.install "tss"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/peaceiris/tss/releases/download/v0.6.1/tss_v0.6.1_darwin-arm64.tar.gz"
-      sha256 "4124bdc2a18fd71ec9da5eecd071e1023f8aab928063163110ac5db6f3fd7a14"
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.2/tss_v0.6.2_darwin-arm64.tar.gz"
+      sha256 "7f32faec022b19127e1d356a9996f2e019f8809f6d2a1cf124f507cf1eb6466e"
 
       def install
         bin.install "tss"
@@ -28,17 +28,17 @@ class Tss < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/peaceiris/tss/releases/download/v0.6.1/tss_v0.6.1_linux-amd64.tar.gz"
-      sha256 "f76f6c1886b88a60c1e03309af11705e50fa47fa2cb871f0384654e9434ac468"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.2/tss_v0.6.2_linux-arm64.tar.gz"
+      sha256 "1a9731c40641d994b478c2094a3ca1eb9b86dd4039ff67d3a6fc7198de845c3c"
 
       def install
         bin.install "tss"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/peaceiris/tss/releases/download/v0.6.1/tss_v0.6.1_linux-arm64.tar.gz"
-      sha256 "6f571e4452b4edb623d2557c49cb8374cfb446921699f9be3dc569bbb6d82797"
+    if Hardware::CPU.intel?
+      url "https://github.com/peaceiris/tss/releases/download/v0.6.2/tss_v0.6.2_linux-amd64.tar.gz"
+      sha256 "afa16a0001f02b2458fdc5422da0a8f39b31baf393a9873cd16ce7bc20f3e717"
 
       def install
         bin.install "tss"
