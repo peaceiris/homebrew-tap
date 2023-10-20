@@ -24,7 +24,7 @@ jobs:
           - 'ubuntu-22.04'
           - 'macos-latest'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Homebrew
         if: startsWith(matrix.os, 'ubuntu-22.04')
         uses: Homebrew/actions/setup-homebrew@master
