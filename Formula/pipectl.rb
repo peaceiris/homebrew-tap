@@ -12,14 +12,14 @@ class Pipectl < Formula
         url "https://github.com/pipe-cd/pipecd/releases/download/v0.47.0/pipectl_v0.47.0_darwin_amd64"
 
         def install
-          bin.install "pipectl"
+          bin.install "pipectl_v0.47.0_darwin_amd64" => "pipectl"
         end
       end
       if Hardware::CPU.arm?
         url "https://github.com/pipe-cd/pipecd/releases/download/v0.47.0/pipectl_v0.47.0_darwin_arm64"
 
         def install
-          bin.install "pipectl"
+          bin.install "pipectl_v0.47.0_darwin_arm64" => "pipectl"
         end
       end
     end
@@ -29,19 +29,19 @@ class Pipectl < Formula
         url "https://github.com/pipe-cd/pipecd/releases/download/v0.47.0/pipectl_v0.47.0_linux_arm64"
 
         def install
-          bin.install "pipectl"
+          bin.install "pipectl_v0.47.0_linux_arm64" => "pipectl"
         end
       end
       if Hardware::CPU.intel?
         url "https://github.com/pipe-cd/pipecd/releases/download/v0.47.0/pipectl_v0.47.0_linux_amd64"
 
         def install
-          bin.install "pipectl"
+          bin.install "pipectl_v0.47.0_linux_amd64" => "pipectl"
         end
       end
     end
 
     test do
-      system "#{bin}/pipectl --help"
+      system "#{bin}/pipectl -h"
     end
   end
