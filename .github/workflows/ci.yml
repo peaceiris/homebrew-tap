@@ -28,5 +28,3 @@ jobs:
       - run: brew upgrade
       - run: brew install peaceiris/tap/tss
       - run: tss version
-      - run: brew install peaceiris/tap/nvm
-      - run: nvm --version
