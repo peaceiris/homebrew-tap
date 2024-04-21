@@ -21,15 +21,12 @@ jobs:
     strategy:
       matrix:
         os:
-          - 'ubuntu-22.04'
-          - 'macos-latest'
+          - 'macos-14'
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Homebrew
-        if: startsWith(matrix.os, 'ubuntu-22.04')
-        uses: Homebrew/actions/setup-homebrew@master
       - run: brew update
       - run: brew upgrade
       - run: brew install peaceiris/tap/tss
-      - run: brew install peaceiris/tap/nvm
       - run: tss version
+      - run: brew install peaceiris/tap/nvm
+      - run: nvm --version
