@@ -15,16 +15,19 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+    timeout-minutes: 15
     permissions:
       contents: read
     strategy:
+      fail-fast: false
       matrix:
         os:
           - 'macos-14'
+          - 'ubuntu-22.04'
     steps:
-      - uses: actions/checkout@v4
-      - run: brew update
-      - run: brew upgrade
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - name: Setup linuxbrew
+        if: startsWith(runner.os, 'ubuntu-')
+        run: echo "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin" >> "${GITHUB_PATH}"
       - run: brew install peaceiris/tap/tss
       - run: tss version
