@@ -11,7 +11,7 @@ cf. https://github.com/aws/homebrew-tap
 brew install peaceiris/tap/robotstxt
 ```
 
-```sh
+```console
 $ curl -s https://peaceiris.com/robots.txt --output robots.txt
 $ robots robots.txt Googlebot https://peaceiris.com/
 user-agent 'Googlebot' with URI 'https://peaceiris.com/': ALLOWED
