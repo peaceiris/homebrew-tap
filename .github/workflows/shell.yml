@@ -1,0 +1,29 @@
+name: Shell
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/shell.yml'
+      - '**.sh'
+      - 'Makefile'
+  pull_request:
+    paths:
+      - '.github/workflows/shell.yml'
+      - '**.sh'
+      - 'Makefile'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 3
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - run: make shellcheck-ci

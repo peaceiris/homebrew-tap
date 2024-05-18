@@ -12,6 +12,10 @@ on:
       - '.github/workflows/ci.yml'
       - 'Formula/*'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   macos:
     runs-on: macos-14
