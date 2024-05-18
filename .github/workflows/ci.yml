@@ -7,10 +7,12 @@ on:
     paths:
       - '.github/workflows/ci.yml'
       - 'Formula/*'
+      - 'scripts/*'
   pull_request:
     paths:
       - '.github/workflows/ci.yml'
       - 'Formula/*'
+      - 'scripts/*'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
