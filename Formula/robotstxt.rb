@@ -15,9 +15,9 @@ class Robotstxt < Formula
     mkdir "c-build" do
       system "cmake", "..", "-DROBOTS_BUILD_TESTS=ON", *std_cmake_args
       system "make"
-      bin.install "robots" => "robotstxt"
+      bin.install "robots"
       lib.install "librobots.dylib"
-      system "install_name_tool", "-add_rpath", "#{lib}", "#{bin}/robotstxt"
+      system "install_name_tool", "-add_rpath", "#{lib}", "#{bin}/robots"
     end
   end
 end
