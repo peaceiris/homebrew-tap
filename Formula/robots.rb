@@ -1,7 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 
-class Robotstxt < Formula
+class Robots < Formula
   desc "Google's robots.txt parser and matcher as a C++ library (compliant to C++11)."
   homepage "https://github.com/google/robotstxt"
   url "https://github.com/google/robotstxt/archive/455b1583103d13ad88fe526bc058d6b9f3309215.tar.gz"
