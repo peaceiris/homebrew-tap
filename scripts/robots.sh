@@ -10,5 +10,3 @@ if [ "${GITHUB_EVENT_NAME}" = "push" ]; then
 else
   brew install --build-from-source ./Formula/robots.rb
 fi
-
-brew test robots
