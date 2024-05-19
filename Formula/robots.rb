@@ -9,20 +9,9 @@ class Robots < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "c-build" do
-      system "cmake", "..", "-DROBOTS_BUILD_TESTS=ON", *std_cmake_args
-      system "make"
-
-      bin.install "robots"
-
-      if OS.mac?
-        lib.install "librobots.dylib"
-        require "macho"
-        MachO::Tools.add_rpath(bin/"robots", lib.to_s)
-      elsif OS.linux?
-        lib.install "librobots.so"
-      end
-    end
+    system "cmake", "-S", ".", "-B", "c-build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    system "cmake", "--build", "c-build"
+    system "cmake", "--install", "c-build"
   end
 
   test do
