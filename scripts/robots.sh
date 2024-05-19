@@ -10,7 +10,3 @@ if [ "${GITHUB_EVENT_NAME}" = "push" ]; then
 else
   brew install --build-from-source ./Formula/robots.rb
 fi
-
-ROBOTS_TXT=$(mktemp)
-curl -s "https://peaceiris.com/robots.txt" --output "${ROBOTS_TXT}"
-robots "${ROBOTS_TXT}" Googlebot "https://peaceiris.com/"
