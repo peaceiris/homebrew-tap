@@ -20,7 +20,7 @@ class Robots < Formula
         require "macho"
         MachO::Tools.add_rpath(bin/"robots", lib.to_s)
       elsif OS.linux?
-        mv "librobots.so", "/usr/lib/librobots.so"
+        lib.install "librobots.so"
       end
     end
   end
