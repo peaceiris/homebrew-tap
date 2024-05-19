@@ -8,7 +8,6 @@ help:
 shellcheck:
 	shellcheck $$(find . -name "*.sh" -not -path "./node_modules/*")
 
-
 .PHONY: shellcheck-fix # lint for all shell scripts and apply suggested fixes
 shellcheck-fix:
 	shellcheck -f diff $$(find . -name "*.sh" -not -path "./node_modules/*") | git apply --unsafe-paths
