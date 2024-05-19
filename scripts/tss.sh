@@ -11,4 +11,4 @@ else
   brew install --build-from-source ./Formula/tss.rb
 fi
 
-tss version
+brew test tss
