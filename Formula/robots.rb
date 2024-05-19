@@ -35,6 +35,6 @@ class Robots < Formula
       Sitemap: https://example.com/sitemap.xml
     EOF
 
-    assert_match "user-agent 'Googlebot' with URI 'https://example.com/example': ALLOWED", shell_output(bin/"robots #{testpath}/robots.txt Googlebot \"https://example.com/example\"", 1)
+    assert_match "user-agent 'Googlebot' with URI 'https://example.com/example': ALLOWED", shell_output(bin/"robots #{testpath}/robots.txt Googlebot \"https://example.com/example\"", 0)
   end
 end
